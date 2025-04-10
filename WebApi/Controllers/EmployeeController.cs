@@ -1,12 +1,12 @@
-using Application.DTOs;
 using Application.DTOs.Requests;
+using Application.DTOs.Responses;
 using Application.Exceptions;
 using Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
 
-[Route("/api/v1/[controller]")]
+[Route("/api/v1/employees")]
 [ApiController]
 public class EmployeeController : ControllerBase
 {
@@ -89,21 +89,21 @@ public class EmployeeController : ControllerBase
         }
     }
 
-    [HttpGet("with-department")]
+    [HttpGet("departments")]
     public async Task<IActionResult> GetAllWithDepartment()
     {
         var employees = await _employeeService.GetAllWithDepartmentAsync();
         return Ok(employees);
     }
 
-    [HttpGet("with-projects")]
+    [HttpGet("projects")]
     public async Task<IActionResult> GetAllWithProjects()
     {
         var employees = await _employeeService.GetAllWithProjectsAsync();
         return Ok(employees);
     }
 
-    [HttpGet("by-salary-date")]
+    [HttpGet("salaryDate")]
     public async Task<IActionResult> GetEmployeesBySalaryAndDateRawSql(
         [FromQuery] decimal minSalary = 100,
         [FromQuery] DateTime minDate = default)

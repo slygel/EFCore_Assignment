@@ -1,4 +1,3 @@
-using Application.DTOs;
 using Application.DTOs.Requests;
 using Application.DTOs.Responses;
 using Application.Exceptions;
@@ -7,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
 
-[Route("/api/v1/[controller]")]
+[Route("/api/v1/departments")]
 [ApiController]
 public class DepartmentController : ControllerBase
 {

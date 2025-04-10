@@ -1,5 +1,3 @@
-using Domain.Entities;
-
 namespace Application.DTOs.Responses;
 
 public class EmployeeProjectDto

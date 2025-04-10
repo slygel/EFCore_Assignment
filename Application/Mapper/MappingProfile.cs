@@ -1,4 +1,3 @@
-using Application.DTOs;
 using Application.DTOs.Requests;
 using Application.DTOs.Responses;
 using AutoMapper;
@@ -15,8 +14,10 @@ public class MappingProfile : Profile
         CreateMap<DepartmentRequestDto, Departments>();
         
         // Employees
-        CreateMap<Employees, EmployeeDto>();
-        CreateMap<EmployeeRequestDto, Employees>();
+        CreateMap<Employees, EmployeeDto>()
+            .ForMember(dest => dest.JoinedDate, opt => opt.MapFrom(src => src.JoinedDate.Date));
+        CreateMap<EmployeeRequestDto, Employees>()
+            .ForMember(dest => dest.JoinedDate, opt => opt.MapFrom(src => src.JoinedDate.Date));
         
         // Project
         CreateMap<Projects, ProjectDto>();
